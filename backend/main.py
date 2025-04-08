@@ -1,42 +1,42 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import openai
-import wikipedia
-import os
 from dotenv import load_dotenv
+import os
+import google.generativeai as genai
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
+
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# Classe da requisição
+class Pergunta(BaseModel):
+    pergunta: str
 
 app = FastAPI()
 
-# Permitir o frontend acessar
+# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Pode restringir a origem se quiser
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-class Pergunta(BaseModel):
-    pergunta: str
-
 @app.post("/perguntar")
-def responder(pergunta: Pergunta):
+async def perguntar(pergunta: Pergunta):
+    print("Pergunta recebida:", pergunta.pergunta)
+
+    # Gerar resposta com o modelo Gemini
     try:
-        contexto = wikipedia.summary(pergunta.pergunta, sentences=2)
-    except:
-        contexto = "Não foi possível encontrar nada na Wikipedia."
-
-    prompt = f"Com base no seguinte contexto, responda de forma clara e objetiva:\n\n{contexto}\n\nPergunta: {pergunta.pergunta}"
-
-    resposta = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "Você é um assistente acadêmico útil."},
-            {"role": "user", "content": prompt}
-        ]
-    )
-
-    return {"resposta": resposta.choices[0].message.content}
+        resposta = model.generate_content(pergunta.pergunta)
+        resposta_texto = resposta.text
+        print("Resposta gerada:", resposta_texto)
+        return {"resposta": resposta_texto}
+    except Exception as e:
+        print("Erro:", e)
+        return {"resposta": "Ocorreu um erro ao tentar responder sua pergunta."}
