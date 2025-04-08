@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: linear-gradient(to right, #0189b3, #016172);
             color: #fff;
             margin: 0;
             padding: 0;
@@ -77,23 +77,25 @@
     <div class="chat-container">
         <input type="text" id="pergunta" placeholder="Digite sua pergunta aqui relacionada a UFS">
         <br>
-        <button onclick="enviarPergunta()">Enviar</button>
+        <button id="enviar" onclick="enviarPergunta()">Enviar</button>
         <p id="resposta"></p>
     </div>
 
     <script>
         async function enviarPergunta() {
-            const pergunta = document.getElementById("pergunta").value;
-            const respostaEl = document.getElementById("resposta");
-
-            if (!pergunta.trim()) {
-                respostaEl.innerText = "Por favor, digite uma pergunta relacionado a UFS.";
-                return;
-            }
-
-            respostaEl.innerText = "Pensando...";
-
+            const botaoEnviar = document.getElementById("enviar");
             try {
+                botaoEnviar.disabled = true
+                const pergunta = document.getElementById("pergunta").value;
+                const respostaEl = document.getElementById("resposta");
+                return
+                if (!pergunta.trim()) {
+                    respostaEl.innerText = "Por favor, digite uma pergunta relacionado a UFS.";
+                    return;
+                }
+
+                respostaEl.innerText = "Pensando...";
+
                 const response = await fetch("http://localhost:8000/perguntar", {
                     method: "POST",
                     headers: {
@@ -107,6 +109,8 @@
             } catch (error) {
                 respostaEl.innerText = "Erro ao se comunicar com o servidor.";
                 console.error("Erro:", error);
+            } finally {
+                botaoEnviar.disabled = false
             }
         }
     </script>

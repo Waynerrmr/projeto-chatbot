@@ -15,7 +15,7 @@ projeto-chatbot/
 │   ├── kb.json     # Knowledge Base
 │   ├── main.py     # API de comunicação com Gemini utilizando FastAPI
 │   ├── utils.py    # Funções auxiliares (consulta à KB)
-│── frontend/           # Diretório onde está a página web
+│── frontend/
 │   ├── index.html      # Página web
 │── requirements.txt    # Lista de dependências do projeto
 │── .env                # Chave da API do Gemini
