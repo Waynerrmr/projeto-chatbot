@@ -8,6 +8,9 @@ from backend.utils import carregar_kb, buscar_conhecimento
 
 load_dotenv()
 
+# No arquivo .env, adicione uma variavel GEMINI_API_KEY com a chave da API do Gemini
+# Exemplo: GEMINI_API_KEY=your_api_key_here
+# Ou sete diretamente nessa variável a baixo, no lugar do: os.getenv("GEMINI_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 

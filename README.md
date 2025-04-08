@@ -6,7 +6,7 @@
 - ALMIR VINÍCIUS BISPO DO NASCIMENTO / 202100011181
 
 ## 📌 Visão Geral
-Um chatbot simples que responde perguntas acadêmicas consultando internet em geral e usando um modelo da Gemini-1.5-flash.
+Um chatbot simples que responde perguntas acadêmicas, voltado a [UFS](https://www.ufs.br/) (Universidade Federal de Sergipe), consultando a internet em geral, pelo modelo da Gemini-1.5-flash e uma base de conhecimentos locais (arquivo `backend/kb.json`).
 
 ## 📂 Estrutura do Projeto
 ```
@@ -36,11 +36,17 @@ pip install -r requirements.txt
 ```
 
 ## 🚀 Execução
+
+Execute os comandos e faça perguntas!
+
+### 1 - Frontend
+```bash
+start ./frontend/index.html
+```
+### 2 - Backend
 ```bash
 uvicorn backend.main:app --reload
 ```
-
-Abra o arquivo `frontend/index.html` no navegador e faça perguntas!
 
 ## 📄 Relatório/Artigo Técnico-Científico
 - [Versão em português](https://link_da_versao_em_portugues.com)
