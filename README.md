@@ -1,6 +1,6 @@
 # ChatBot Acadêmico
 
-Um chatbot simples que responde perguntas acadêmicas consultando a Wikipedia e usando um modelo da Gemini-1.5-flash
+Um chatbot simples que responde perguntas acadêmicas consultando internet em geral e usando um modelo da Gemini-1.5-flash
 
 ## Requisitos
 

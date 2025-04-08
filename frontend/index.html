@@ -75,7 +75,7 @@
     <h1>Chatbot com IA</h1>
 
     <div class="chat-container">
-        <input type="text" id="pergunta" placeholder="Digite sua pergunta aqui...">
+        <input type="text" id="pergunta" placeholder="Digite sua pergunta aqui relacionada a UFS">
         <br>
         <button onclick="enviarPergunta()">Enviar</button>
         <p id="resposta"></p>
@@ -87,7 +87,7 @@
             const respostaEl = document.getElementById("resposta");
 
             if (!pergunta.trim()) {
-                respostaEl.innerText = "Por favor, digite uma pergunta.";
+                respostaEl.innerText = "Por favor, digite uma pergunta relacionado a UFS.";
                 return;
             }
 
