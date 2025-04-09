@@ -49,5 +49,5 @@ uvicorn backend.main:app --reload
 ```
 
 ## 📄 Relatório/Artigo Técnico-Científico
-- [Versão em português](https://link_da_versao_em_portugues.com)
-- [Versão em inglês](https://link_da_versao_em_ingles.com)
+- [Versão em português](https://docs.google.com/document/d/1ideKIV_1nRyi_up0yGqoiwT2F6FQWySLZ9aA2eN44nI/edit?usp=sharing)
+- [Versão em inglês](https://docs.google.com/document/d/1DEeyrdDk5WuhF705VA5KKskCXk46SLfgiR_J80-Hru4/edit?usp=sharing)

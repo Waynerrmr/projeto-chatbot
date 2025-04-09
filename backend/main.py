@@ -42,7 +42,8 @@ async def perguntar(pergunta: Pergunta):
         prompt = f"O usuário perguntou algo relacionado a: \"{conhecimento}\".\nUse esse conhecimento para ajudar a formular a resposta.\n{prompt_base}"
     else:
         prompt = prompt_base
-
+    prompt += 'Explique passo a passo seu raciocínio antes de dar a resposta final.'
+    
     # Gerar resposta com o modelo Gemini
     try:
         resposta = model.generate_content(prompt)
