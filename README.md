@@ -6,7 +6,7 @@
 - ALMIR VINÍCIUS BISPO DO NASCIMENTO / 202100011181
 
 ## 📌 Visão Geral
-Um chatbot simples que responde perguntas acadêmicas, voltado a [UFS](https://www.ufs.br/) (Universidade Federal de Sergipe), consultando a internet em geral, pelo modelo da Gemini-1.5-flash e uma base de conhecimentos locais (arquivo `backend/kb.json`).
+Chatbot que responde perguntas acadêmicas, voltado a [UFS](https://www.ufs.br/) (Universidade Federal de Sergipe), consultando a internet em geral, pelo modelo da Gemini-1.5-flash e uma base de conhecimentos locais (arquivo `backend/kb.json`).
 
 ## 📂 Estrutura do Projeto
 ```
